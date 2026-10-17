@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BSIT Student Portfolio</title>
+<meta name="description" content="Portfolio of a BSIT student: projects, skills, IT tools and troubleshooting case studies.">
+<meta property="og:title" content="BSIT Student Portfolio">
+<meta property="og:description" content="Projects, skills, IT tools and troubleshooting case studies.">
+<meta name="theme-color" content="#07090d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%234c8dff%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-size=%2716%27 font-family=%27monospace%27 text-anchor=%27middle%27 fill=%27white%27%3E%3E_%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <a class="brand" href="#home" data-p="name">AIZEL JADE B. BIÑAR</a>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu">☰</button>
+  <nav id="menu" aria-label="Main">
+    <a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#tools">Tools</a>
+    <a href="#cases">Case studies</a><a href="#resume">Resume</a><a href="#contact">Contact</a>
+  </nav>
+  <button class="btn ghost sm" id="theme" aria-label="Switch to light mode">Light</button>
+</header>
+
+<main id="main">
+<section id="home" class="hero wrap">
+  <div>
+    <p class="status"><span class="dot"></span><span data-p="status">BSIT Student | Aspiring IT Professional</span></p>
+    <h1><span data-p="name">AIZEL JADE B. BIÑAR</span><br><small data-p="title">Information Technology Student</small></h1>
+    <p class="lead" data-p="intro">[Write 2 sentences about yourself here: your course, your school, and the kind of IT work you want to do.]</p>
+    <p class="chips" id="interests"></p>
+    <p class="cta">
+      <a class="btn" href="#projects">View My Projects</a>
+      <a class="btn ghost" href="assets/resume.pdf" download id="dl">Download Resume</a>
+      <a class="btn ghost" href="#contact">Contact Me</a>
+    </p>
+  </div>
+  <div class="term" aria-label="Profile card">
+    <div class="avatar" role="img" aria-label="Profile picture placeholder. Replace with assets/profile.jpg">Your photo</div>
+    <pre aria-hidden="true"><span class="c1">$ whoami</span>
+<span class="c2" data-p="name">AIZEL JADE B. BIÑAR</span>
+<span class="c1">$ ping -c1 career</span>
+<span class="c2">Reply: ready to learn</span></pre>
+  </div>
+</section>
+
+<section id="about" class="wrap">
+  <h2>About me</h2>
+  <div class="grid two">
+    <div class="card"><p data-p="about1">[Background: where you studied, what made you choose IT, and what you enjoy most about it.]</p>
+      <p data-p="about2">[Strengths and career goals: what you are good at, and the role you want after graduation.]</p></div>
+    <div class="card"><h3>Quick facts</h3><ul class="facts" id="facts"></ul></div>
+  </div>
+</section>
+
+<section id="education" class="wrap">
+  <h2>Education and experience</h2>
+  <ol class="timeline" id="timeline"></ol>
+</section>
+
+<section id="skills" class="wrap">
+  <h2>Technical skills</h2>
+  <p class="sub">Edit <code>js/data.js</code> to remove skills you do not have and set honest levels.</p>
+  <div class="filters" id="skillFilters" role="group" aria-label="Filter skills"></div>
+  <div class="grid three" id="skillGrid"></div>
+</section>
+
+<section id="projects" class="wrap">
+  <h2>Projects</h2>
+  <p class="sub">Sample projects. Replace them with your real work.</p>
+  <div class="grid three" id="projectGrid"></div>
+</section>
+
+<section id="tools" class="wrap">
+  <h2>IT tools: IPv4 subnet calculator</h2>
+  <div class="card tool">
+    <form id="subnetForm" novalidate>
+      <label for="ip">IPv4 address</label>
+      <input id="ip" inputmode="decimal" placeholder="192.168.10.37" autocomplete="off" required>
+      <label for="cidr">CIDR prefix (0 to 32)</label>
+      <input id="cidr" inputmode="numeric" placeholder="24" autocomplete="off" required>
+      <button class="btn" type="submit">Calculate</button>
+      <p class="err" id="subErr" role="alert"></p>
+    </form>
+    <dl class="out" id="subOut" aria-live="polite"><dt>Result</dt><dd>Enter an address and prefix.</dd></dl>
+  </div>
+</section>
+
+<section id="cases" class="wrap">
+  <h2>Problem-solving and case studies</h2>
+  <p class="sub">Sample cases use standard troubleshooting steps. Rewrite the lessons from your own experience.</p>
+  <div id="caseList"></div>
+</section>
+
+<section id="resume" class="wrap">
+  <h2>Resume and career objective</h2>
+  <div class="grid">
+    <div class="card"><h3>Career objective</h3><p data-p="objective">[One or two sentences about the role you want and what you offer.]</p>
+      <h3>Desired positions</h3><ul id="roles"></ul>
+      <a class="btn" href="assets/resume.pdf" download>Download Resume (PDF)</a>
+      <p class="note">Put your PDF at <code>assets/resume.pdf</code>.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="wrap">
+  <h2>Contact</h2>
+  <div class="grid two">
+    <form class="card" id="contactForm" novalidate>
+      <label for="cn">Name</label><input id="cn" autocomplete="name" required>
+      <label for="ce">Email</label><input id="ce" type="email" autocomplete="email" required>
+      <label for="cs">Subject</label><input id="cs" required>
+      <label for="cm">Message</label><textarea id="cm" rows="5" required></textarea>
+      <button class="btn" type="submit">Send message</button>
+      <p class="err" id="cErr" role="alert"></p>
+      <p class="note">This static site has no backend. The button opens your email app with the message filled in. To receive messages directly, connect a service such as Formspree or EmailJS, or your own server.</p>
+    </form>
+    <div class="card"><h3>Find me online</h3><ul class="links" id="links"></ul></div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap"><span data-p="name">AIZEL JADE B. BIÑAR</span> · BSIT portfolio · <a href="#home">Back to top</a></footer>
+
+<dialog id="dlg" aria-labelledby="dlgTitle"><button class="x" id="dlgX" aria-label="Close">×</button><div id="dlgBody"></div></dialog>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

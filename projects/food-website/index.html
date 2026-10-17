@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mesa Kitchen | Home-style food</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf6ee;--surface:#fff;--ink:#2a1d17;--muted:#6f5d52;--line:#eadfd0;--accent:#c8402a;--on:#fff;--tile:#f6e6d0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17110e;--surface:#211812;--ink:#f6ebdf;--muted:#b9a698;--line:#3a2c23;--accent:#ee6a4f;--on:#1a0e09;--tile:#2d2119}}
+:root[data-theme="dark"]{--bg:#17110e;--surface:#211812;--ink:#f6ebdf;--muted:#b9a698;--line:#3a2c23;--accent:#ee6a4f;--on:#1a0e09;--tile:#2d2119}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "DM Sans",system-ui,sans-serif;padding-bottom:90px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;margin:0}
+.wrap{max-width:1000px;margin:0 auto;padding:0 1.25rem}
+header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;max-width:1000px;margin:0 auto}
+.logo{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.3rem}.logo b{color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none;margin-left:1.2rem;font-size:.95rem}nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center;padding:3rem 1.25rem 2rem;max-width:1000px;margin:0 auto}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800}.hero h1 em{color:var(--accent);font-style:normal}
+.hero p{color:var(--muted);max-width:44ch;margin:1rem 0 1.5rem}
+.btn{display:inline-block;background:var(--accent);color:var(--on);border:0;border-radius:99px;padding:.75rem 1.5rem;font:700 1rem inherit;font-family:inherit;text-decoration:none;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.plate{aspect-ratio:1;border-radius:50%;background:var(--tile);display:grid;place-items:center;font-size:clamp(6rem,18vw,11rem);box-shadow:inset 0 0 0 14px var(--surface)}
+section{padding:3rem 0 0}h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:1rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+.tabs button{background:var(--surface);color:var(--muted);border:1.5px solid var(--line);border-radius:99px;padding:.35rem 1rem;font:inherit;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.dish{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1rem;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.dish:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.emo{height:110px;border-radius:12px;background:var(--tile);display:grid;place-items:center;font-size:3.6rem;margin-bottom:.8rem}
+.dish h3{font-size:1.15rem}.dish p{color:var(--muted);font-size:.9rem;margin:.3rem 0 1rem;flex:1}
+.row{display:flex;justify-content:space-between;align-items:center}.price{font-weight:700}
+.dish .btn{padding:.4rem 1rem;font-size:.9rem}
+.about{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.2rem}
+.card h3{font-size:1.1rem;margin-bottom:.4rem}.card p{margin:0;color:var(--muted)}
+footer{text-align:center;color:var(--muted);padding:3rem 1.25rem 1rem;font-size:.9rem}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--ink);color:var(--bg);padding:.8rem 1.25rem calc(.8rem + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .3s}
+.bar.show{transform:none}.bar .btn{background:var(--accent);color:var(--on);padding:.5rem 1.2rem}
+dialog{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:18px;width:min(460px,92vw);padding:1.4rem}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+.line{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.55rem 0;border-bottom:1px solid var(--line)}
+.qty button{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);background:none;color:var(--ink);cursor:pointer;font-size:1rem}
+.qty span{display:inline-block;min-width:24px;text-align:center}
+.total{display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;margin:1rem 0}
+.note{color:var(--muted);font-size:.85rem}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(max-width:720px){.hero,.about{grid-template-columns:1fr}.plate{max-width:240px;margin:0 auto}nav a:not(:last-child){display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><span class="logo">Mesa<b>.</b>Kitchen</span><nav><a href="#menu">Menu</a><a href="#about">About</a><a href="#visit">Visit</a></nav></header>
+
+<div class="hero">
+  <div>
+    <h1>Good food,<br><em>made fresh</em> every day.</h1>
+    <p>Simple, home-style dishes cooked to order. Pick your favorites, build your order and we’ll have it ready.</p>
+    <a class="btn" href="#menu">See the menu</a> <a class="btn alt" href="#visit">Visit us</a>
+  </div>
+  <div class="plate" role="img" aria-label="A bowl of rice with a fried egg">🍳</div>
+</div>
+
+<main class="wrap">
+  <section id="menu">
+    <h2>Our menu</h2>
+    <p class="note">Sample dishes and prices. Edit the list in the script to match your own menu.</p>
+    <div class="tabs" id="tabs" role="group" aria-label="Menu categories"></div>
+    <div class="menu" id="menuGrid"></div>
+  </section>
+
+  <section id="about">
+    <h2>Why people love us</h2>
+    <div class="about">
+      <div class="card"><h3>Fresh ingredients</h3><p>We cook in small batches so every plate is hot and fresh.</p></div>
+      <div class="card"><h3>Made to order</h3><p>Tell us how you like it. We’re happy to adjust a dish.</p></div>
+      <div class="card"><h3>Fair prices</h3><p>Generous portions at prices that make sense every day.</p></div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <h2>Visit us</h2>
+    <div class="card"><p><b>Hours:</b> Daily, 10:00 AM to 9:00 PM<br><b>Address:</b> Sucat Branch, Parañaque City, Manila, Philippines<br><b>Phone:</b> 09617758651</p></div>
+  </section>
+</main>
+<footer>© 2026 Mesa Kitchen · Sample website · <a href="../../" style="color:var(--accent)">← Back to portfolio</a></footer>
+
+<div class="bar" id="bar"><span id="barText"></span><button class="btn" id="review">Review order</button></div>
+<dialog id="dlg" aria-labelledby="dt"><h2 id="dt">Your order</h2><div id="lines"></div><div class="total"><span>Total</span><span id="tot"></span></div><p class="note" id="msg">This is a demo: placing an order does not send it anywhere.</p><div class="row"><button class="btn alt" id="close">Keep browsing</button><button class="btn" id="place">Place order</button></div></dialog>
+
+<script>
+const MENU=[
+{n:"Garlic Butter Shrimp",d:"Pan-seared shrimp in garlic butter with rice.",p:289,c:"Mains",e:"🍤"},
+{n:"Crispy Chicken Bowl",d:"Crunchy chicken over rice with a fried egg.",p:219,c:"Mains",e:"🍗"},
+{n:"Beef Rice Plate",d:"Tender sliced beef, garlic rice and egg.",p:249,c:"Mains",e:"🥩"},
+{n:"Creamy Carbonara",d:"Pasta in a rich egg and cheese sauce.",p:199,c:"Mains",e:"🍝"},
+{n:"Garden Salad",d:"Crisp greens, tomato and cucumber.",p:119,c:"Sides",e:"🥗"},
+{n:"Crinkle Fries",d:"Golden fries with house dip.",p:99,c:"Sides",e:"🍟"},
+{n:"Chocolate Cake",d:"A rich, moist slice with chocolate frosting.",p:129,c:"Desserts",e:"🍰"},
+{n:"Mango Ice Cream",d:"Two scoops of sweet mango ice cream.",p:99,c:"Desserts",e:"🍨"},
+{n:"Iced Tea",d:"Fresh-brewed and lightly sweet.",p:69,c:"Drinks",e:"🧋"},
+{n:"Fresh Lemonade",d:"Squeezed to order, served cold.",p:79,c:"Drinks",e:"🍋"}
+];
+const peso=n=>"₱"+n.toLocaleString();
+const $=s=>document.querySelector(s);
+const cats=["All",...new Set(MENU.map(m=>m.c))];
+const cart={};
+let cat="All";
+function drawMenu(){
+  $("#tabs").innerHTML=cats.map(c=>`<button aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join("");
+  $("#menuGrid").innerHTML=MENU.map((m,i)=>({m,i})).filter(x=>cat==="All"||x.m.c===cat).map(({m,i})=>`<article class="dish"><div class="emo" role="img" aria-label="${m.n}">${m.e}</div><h3>${m.n}</h3><p>${m.d}</p><div class="row"><span class="price">${peso(m.p)}</span><button class="btn" data-add="${i}">Add</button></div></article>`).join("");
+}
+function totals(){let q=0,t=0;for(const i in cart){q+=cart[i];t+=cart[i]*MENU[i].p}return{q,t}}
+function sync(){
+  const {q,t}=totals();
+  $("#bar").classList.toggle("show",q>0);
+  $("#barText").textContent=q+(q===1?" item · ":" items · ")+peso(t);
+  $("#lines").innerHTML=Object.keys(cart).map(i=>`<div class="line"><span>${MENU[i].n}<br><small class="note">${peso(MENU[i].p)} each</small></span><span class="qty"><button data-dec="${i}" aria-label="Remove one ${MENU[i].n}">−</button><span>${cart[i]}</span><button data-inc="${i}" aria-label="Add one ${MENU[i].n}">+</button></span></div>`).join("")||"<p class=\"note\">Your order is empty.</p>";
+  $("#tot").textContent=peso(t);
+  $("#place").disabled=q===0;
+}
+$("#tabs").onclick=e=>{if(e.target.dataset.c){cat=e.target.dataset.c;drawMenu()}};
+$("#menuGrid").onclick=e=>{const i=e.target.dataset.add;if(i===undefined)return;cart[i]=(cart[i]||0)+1;sync()};
+$("#review").onclick=()=>{$("#msg").textContent="This is a demo: placing an order does not send it anywhere.";sync();$("#dlg").showModal()};
+$("#close").onclick=()=>$("#dlg").close();
+$("#lines").onclick=e=>{const d=e.target.dataset;if(d.inc!==undefined)cart[d.inc]++;if(d.dec!==undefined&&--cart[d.dec]<=0)delete cart[d.dec];sync()};
+$("#place").onclick=()=>{for(const i in cart)delete cart[i];sync();$("#msg").textContent="Thank you! Your demo order was placed.";};
+drawMenu();sync();
+</script>
+</body>
+</html>
