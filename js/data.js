@@ -24,8 +24,6 @@ const TIMELINE = [
 ];
 /* Level: 0 to 100. Keep only skills you really have. */
 const SKILLS = [
-  { cat: "Programming", n: "Python", l: 50 }, { cat: "Programming", n: "Java", l: 40 },
-  { cat: "Programming", n: "HTML and CSS", l: 60 }, { cat: "Programming", n: "JavaScript", l: 45 },
   { cat: "Database", n: "MySQL and SQL", l: 55 },
   { cat: "Systems", n: "Networking and troubleshooting", l: 55 }, { cat: "Systems", n: "Computer hardware and software", l: 60 },
   { cat: "Security", n: "Cybersecurity fundamentals", l: 40 },
