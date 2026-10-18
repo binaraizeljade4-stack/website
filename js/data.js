@@ -32,11 +32,7 @@ const SKILLS = [
 ];
 const PROJECTS = [
   { t: "Food Website (Mesa Kitchen)", d: "A simple restaurant website with a filterable menu and a working order tray.", obj: "Let visitors browse a menu by category and build an order with a running total.", tech: ["HTML", "CSS", "JavaScript"], img: "food-website.jpg", code: "", demo: "projects/food-website/" },
-  { t: "Student Information Management System", d: "Sample: records for students, courses and grades.", obj: "Store and search student records with a database back end.", tech: ["PHP or Python", "MySQL"], img: "", code: "", demo: "" },
   { t: "Personal Portfolio Website", d: "Sample: this responsive portfolio.", obj: "Present my skills and work in one professional page.", tech: ["HTML", "CSS", "JavaScript"], img: "", code: "", demo: "" },
-  { t: "Database Management System", d: "Sample: a normalized database with queries and reports.", obj: "Design tables, keys and relationships, then query them with SQL.", tech: ["MySQL", "SQL"], img: "", code: "", demo: "" },
-  { t: "Data Analysis Dashboard", d: "Sample: charts and summaries built from a data set.", obj: "Clean data and show trends in an Excel dashboard.", tech: ["Excel", "Charts"], img: "", code: "", demo: "" },
-  { t: "Network Troubleshooting Tool", d: "Sample: a script that runs ping and DNS checks.", obj: "Help find where a connection fails.", tech: ["Python", "ping", "nslookup"], img: "", code: "", demo: "" }
 ];
 const CASES = [
   { t: "No internet connection", p: "A computer cannot reach websites.", c: "Loose cable, disabled adapter, wrong IP settings, DNS failure, router fault.", s: "Check the cable and adapter. Run ipconfig /all. Ping the gateway, then 8.8.8.8, then a website name to find which step fails.", f: "Renew the IP with ipconfig /release and /renew, flush DNS with ipconfig /flushdns, or set a working DNS server.", l: "[Write what you learned.]" },
